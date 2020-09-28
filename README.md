@@ -1,7 +1,7 @@
 ### 
 mitproxy 消息拦截 抓取国家药监局等严重瑞数加密相关站点信息
 
-![image-20200928161730338](C:\Users\silva\AppData\Roaming\Typora\typora-user-images\image-20200928161730338.png)
+![image.png](https://upload-images.jianshu.io/upload_images/13378161-0b7e934af2eb4e6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
