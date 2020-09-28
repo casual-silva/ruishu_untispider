@@ -37,9 +37,8 @@ if __name__ == '__main__':
         'http://fgw.hubei.gov.cn/gzjj/dtyw/fgyw/',
 
     ]
-    # redis_db.sadd('gov:start_task', tart_url)
+    # 推送任务入口
     if not redis_db.sget('gov:start_task'):
-        # redis_db.sadd('gov:start_task', tart_url)
-        print('not fund start_task !')
-    else:
-        start()
+        redis_db.sadd('gov:start_task', tart_url)
+        print('pushed start_tasks !')
+    start() 
