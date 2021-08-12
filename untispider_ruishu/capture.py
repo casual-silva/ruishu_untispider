@@ -16,7 +16,6 @@ from urllib.parse import urljoin
 from scrapy.selector import Selector
 # 本地模块
 from db import redis_db, RedisDB,to_unicode
-print(redis_db, RedisDB,to_unicode)
 
 start_key = 'gov:start_task'
 catlog_key = 'gov:catlog_task'
@@ -57,7 +56,7 @@ class RuiShuCapture:
         else:
             # '其他页面重定向延时加载'
             url = 'http://fgw.hubei.gov.cn/gzjj/tzgg/tz/201310/t20131029_1012002.shtml'
-            redirect_page_content = page_content_redirect.format('非资源页面重定向', url=url, sleep_time_msec=3000)
+            redirect_page_content = page_content_redirect.format(tip='非资源页面重定向', url=url, sleep_time_msec=3000)
         # 页面重定向
         if redirect_page_content:
             flow.response.set_text(redirect_page_content + flow.response.text)
@@ -102,7 +101,7 @@ def deal_data(url, text, selector):
     处理响应结果
     :return:
     '''
-    if 'ArticleTitle' in text:
+    if 'ArticleTitle' in text and 't20131029_1012002' not in url:
         redis_db.sadd(content_key, text)
         ctx.log('详情内容获取成功, 已缓存至redis!')
 
